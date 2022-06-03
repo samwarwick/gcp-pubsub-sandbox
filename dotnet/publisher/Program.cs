@@ -21,17 +21,16 @@ var publisher = await PublisherClient.CreateAsync(
     new PublisherClient.ClientCreationSettings()
         .WithEmulatorDetection(EmulatorDetection.EmulatorOrProduction));
 
-
 var subject = "Hello world!";
 Console.WriteLine(args.Length);
 if (args.Length > 0 && args[0] != "") {
     subject = args[0];
 }
 
-var text = $"{{ \"service\": \"dotnet\", \"subject\": \"{subject}\" }}";
+var json = $"{{ \"service\": \"dotnet\", \"subject\": \"{subject}\" }}";
 
-await publisher.PublishAsync(text);
+Console.WriteLine($"SENDING: {json}");
 
-Console.WriteLine($"SENDING: {text}");
+await publisher.PublishAsync(json);
 
 await publisher.ShutdownAsync(TimeSpan.FromSeconds(15));

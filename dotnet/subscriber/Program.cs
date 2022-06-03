@@ -5,7 +5,7 @@ using Grpc.Core.Logging;
 
 GrpcEnvironment.SetLogger(new ConsoleLogger());
 
-Console.WriteLine(".NET subscriber...");
+Console.WriteLine(".NET subscriber");
 
 var projectId = "gps-demo";
 var topicId = "demo-topic";
@@ -33,7 +33,7 @@ var subscriber = await SubscriberClient.CreateAsync(
 await subscriber.StartAsync((msg, cancellationToken) =>
 {
     Console.WriteLine($"Received message {msg.MessageId} published at {msg.PublishTime.ToDateTime()}");
-    Console.WriteLine($"Text: '{msg.Data.ToStringUtf8()}'");
+    Console.WriteLine($"Data: '{msg.Data.ToStringUtf8()}'");
 
     if (msg.Data.ToStringUtf8().Contains("quit"))
     {

@@ -34,3 +34,29 @@ Supported clients:
 * C# .NET (dotnet)
 * JavaScript (node)
 
+See the README files in the individual client folders for additional information.
+
+### Start a subscriber
+
+```./gps.sh <client> sub```
+
+e.g.
+
+```./gps.sh go sub```
+
+The subscriber can be halted by killing the process or sending a "quit" message.
+
+### Publish messages
+
+```./gps.sh <client> pub [message]```
+
+If no message is provided then a default message is used.
+
+e.g.
+
+```./gps.sh node pub "My first message"```
+
+Terminate subscriber:
+
+```./gps.sh node pub quit```
+
