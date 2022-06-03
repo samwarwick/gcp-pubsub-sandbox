@@ -20,6 +20,16 @@ case $1 in
         ;;
     dotnet)
         check_client_args $*
+        if [[ $2 == pub* ]]; then
+            cd $GPSROOT/dotnet/publisher
+            dotnet run "$3"
+        elif [[ $2 == sub* ]]; then
+            cd $GPSROOT/dotnet/subscriber
+            dotnet run
+        else
+            echo "Invalid dotnet command --" $2
+            exit 1
+        fi
         ;;
     go)
         check_client_args $* 

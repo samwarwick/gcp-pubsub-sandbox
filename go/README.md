@@ -5,9 +5,14 @@ https://pkg.go.dev/cloud.google.com/go/pubsub
 
 ## Publisher
 
-```go run . [message]```
+```
+cd publisher
+go run . [message]
+```
 
 ## Subscriber
 
-```go run .```
-
+```
+cd subscriber
+go run .
+```
